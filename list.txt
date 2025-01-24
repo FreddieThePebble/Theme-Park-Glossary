@@ -1,3 +1,2 @@
-[Example Link 1](https://example1.com)
-[Example Link 2](https://example2.com)
-[Example Link 3](https://example3.com)
+[Theme Park Glossary (Wed 22 Jan 2025).docx](https://github.com/FreddieThePebble/Theme-Park-Glossary/raw/refs/heads/main/downloads/Theme%20Park%20Glossary%20(Wed%2022%20Jan%202025).docx)
+[Theme Park Glossary (Wed 22 Jan 2025).pdf](https://github.com/FreddieThePebble/Theme-Park-Glossary/raw/refs/heads/main/downloads/Theme%20Park%20Glossary%20(Wed%2022%20Jan%202025).pdf)
