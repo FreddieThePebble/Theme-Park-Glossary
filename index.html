@@ -3,247 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Downloads</title>
+    <title>Hyperlinks List</title>
     <style>
-        /* General Styles */
+        /* Dark Mode Styles */
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'Arial', sans-serif;
             background-color: #121212;
             color: #e0e0e0;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        header {
-            background-color: #1e1e1e;
-            color: #e0e0e0;
-            padding: 10px 20px;
-            text-align: center;
-        }
-
-        main {
-            max-width: 800px;
-            margin: 20px auto;
+            margin: 0;
             padding: 20px;
-            background: #1e1e1e;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
-            transition: background-color 0.3s;
         }
 
-        h1 {
+        h1, h2 {
+            color: #ffffff;
             text-align: center;
         }
 
-        .folder {
-            margin: 20px 0;
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        li {
+            background-color: #1f1f1f;
+            margin: 10px 0;
             padding: 15px;
-            border: 1px solid #333;
             border-radius: 5px;
-            background-color: #2a2a2a;
-            transition: background-color 0.3s, border-color 0.3s;
+            transition: background-color 0.3s;
         }
 
-        .folder h2 {
-            margin: 0;
-            font-size: 20px;
-            cursor: pointer;
+        li:hover {
+            background-color: #333333;
         }
 
-        .folder .download-item {
-            margin: 15px 0;
-            padding: 15px;
-            border: 1px solid #444;
-            border-radius: 5px;
-            background-color: #3a3a3a;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s, border-color 0.3s;
-        }
-
-        .folder .download-item h3 {
-            margin: 0;
-            font-size: 18px;
-        }
-
-        .folder .download-item a {
+        a {
+            color: #1e90ff;
             text-decoration: none;
-            color: white;
-            background-color: #007BFF;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-size: 14px;
-            transition: background-color 0.3s;
+            font-size: 16px;
+            display: block;
         }
 
-        .folder .download-item a:hover {
-            background-color: #0056b3;
+        a:hover {
+            text-decoration: underline;
         }
 
-        /* Collapsed folder content */
-        .folder-content {
-            display: none;
+        /* Centering content */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        /* Popup at the bottom */
-        .popup {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: #1e1e1e;
-            color: #e0e0e0;
-            padding: 10px;
-            text-align: center;
-            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.4);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-        }
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            h1, h2 {
+                font-size: 24px;
+            }
 
-        .popup img {
-            width: 30px;
-            height: 30px;
-            vertical-align: middle;
-        }
+            li {
+                padding: 12px;
+            }
 
-        /* Dark/Light Mode Toggle Button */
-        .theme-toggle {
-            position: fixed;
-            bottom: 15px;
-            left: 15px;
-            background-color: #3a3a3a;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 15px;
-            font-size: 14px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .theme-toggle:hover {
-            background-color: #555;
-        }
-
-        /* Light Mode Styles */
-        body.light-mode {
-            background-color: #f8f9fa;
-            color: #212529;
-        }
-
-        header.light-mode {
-            background-color: #f1f1f1;
-            color: #212529;
-        }
-
-        main.light-mode {
-            background: #ffffff;
-        }
-
-        .folder.light-mode {
-            background-color: #f8f9fa;
-            border-color: #ddd;
-        }
-
-        .folder .download-item.light-mode {
-            background-color: #ffffff;
-            border-color: #ccc;
-        }
-
-        .folder .download-item a.light-mode {
-            color: white;
-            background-color: #007BFF;
-        }
-
-        .popup.light-mode {
-            background-color: #f1f1f1;
-            color: #212529;
-        }
-
-        .theme-toggle.light-mode {
-            background-color: #e0e0e0;
-            color: #121212;
+            a {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Downloads</h1>
-    </header>
-
-    <main>
-        <h1>Available Downloads</h1>
-
-        <div class="folder">
-            <h2 onclick="toggleFolder(event)">Wed 22 Jan 2025</h2>
-            <div class="folder-content">
-                <div class="download-item">
-                    <div>
-                        <h3>Theme Park Glossary (DOCX)</h3>
-                    </div>
-                    <a href="https://github.com/FreddieThePebble/Theme-Park-Glossary/raw/refs/heads/main/downloads/Theme%20Park%20Glossary%20(Wed%2022%20Jan%202025).docx" download>Download</a>
-                </div>
-                <div class="download-item">
-                    <div>
-                        <h3>Theme Park Glossary (PDF)</h3>
-                    </div>
-                    <a href="https://github.com/FreddieThePebble/Theme-Park-Glossary/raw/refs/heads/main/downloads/Theme%20Park%20Glossary%20(Wed%2022%20Jan%202025).pdf" download>Download</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="folder">
-            <h2 onclick="toggleFolder(event)">Thu 23 Jan 2025</h2>
-            <div class="folder-content">
-                <div class="download-item">
-                    <div>
-                        <h3>Theme Park Glossary v2 (DOCX)</h3>
-                    </div>
-                    <a href="https://example.com/file-v2.docx" download>Download</a>
-                </div>
-                <div class="download-item">
-                    <div>
-                        <h3>Theme Park Glossary v2 (PDF)</h3>
-                    </div>
-                    <a href="https://example.com/file-v2.pdf" download>Download</a>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <div class="popup">
-        <p>Also available on</p>
-        <a href="https://freddiethepebble.itch.io/themepark-glossary" target="_blank">
-            <img src="https://raw.githubusercontent.com/FreddieThePebble/Theme-Park-Glossary/refs/heads/main/icons/itch.io.png" alt="Itch.io">
-        </a>
-        <a href="https://freddiethepebble.gumroad.com/l/ThemeParkGlossary" target="_blank">
-            <img src="https://raw.githubusercontent.com/FreddieThePebble/Theme-Park-Glossary/refs/heads/main/icons/Gumroad.png" alt="Gumroad">
-        </a>
+    <div class="container">
+        <h1>Links from File</h1>
+        <h2>Links:</h2>
+        <ul id="linksList"></ul>
     </div>
 
-    <button class="theme-toggle" onclick="toggleTheme()">Light Mode</button>
-
     <script>
-        // Toggle folder visibility
-        function toggleFolder(event) {
-            const folderContent = event.target.nextElementSibling;
-            folderContent.style.display = folderContent.style.display === 'none' || folderContent.style.display === '' ? 'block' : 'none';
-        }
+        // URL of the raw .txt file
+        const fileUrl = "https://raw.githubusercontent.com/FreddieThePebble/Theme-Park-Glossary/refs/heads/main/list.txt";
 
-        // Toggle Dark/Light Mode
-        function toggleTheme() {
-            const body = document.body;
-            const toggleButton = document.querySelector('.theme-toggle');
-            const elementsToToggle = document.querySelectorAll('.folder, .folder .download-item, .popup, .theme-toggle');
+        // Fetch the .txt file and process the links
+        fetch(fileUrl)
+            .then(response => response.text())
+            .then(content => generateLinks(content))
+            .catch(error => console.error("Error fetching the file:", error));
 
-            body.classList.toggle('light-mode');
-            elementsToToggle.forEach(el => el.classList.toggle('light-mode'));
+        function generateLinks(content) {
+            const lines = content.split('\n');
+            const linksList = document.getElementById('linksList');
+            linksList.innerHTML = ''; // Clear any previous list
 
-            toggleButton.textContent = body.classList.contains('light-mode') ? 'Dark Mode' : 'Light Mode';
+            lines.forEach(line => {
+                const match = line.match(/\[([^\]]+)\]\((https?:\/\/[^\)]+)\)/);
+                if (match) {
+                    const linkTitle = match[1];
+                    const url = match[2];
+                    const listItem = document.createElement('li');
+                    const anchor = document.createElement('a');
+                    anchor.href = url;
+                    anchor.target = '_blank';
+                    anchor.textContent = linkTitle;
+                    listItem.appendChild(anchor);
+                    linksList.appendChild(listItem);
+                }
+            });
         }
     </script>
 </body>
