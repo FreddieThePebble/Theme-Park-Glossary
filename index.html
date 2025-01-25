@@ -141,6 +141,11 @@
         </div>
     </div>
 
+    <!-- Audio elements -->
+    <audio id="clickSound" src="https://github.com/FreddieThePebble/Theme-Park-Glossary/raw/refs/heads/main/sfx/click.mp3"></audio>
+    <audio id="hoverSound" src="https://github.com/FreddieThePebble/Theme-Park-Glossary/raw/refs/heads/main/sfx/hover.mp3"></audio>
+    <audio id="selectSound" src="https://github.com/FreddieThePebble/Theme-Park-Glossary/raw/refs/heads/main/sfx/select.mp3"></audio>
+
     <script>
         // URL of the raw .txt file
         const fileUrl = "https://raw.githubusercontent.com/FreddieThePebble/Theme-Park-Glossary/refs/heads/main/list.txt";
@@ -166,11 +171,33 @@
                     anchor.href = url;
                     anchor.target = '_blank';
                     anchor.textContent = linkTitle;
+
+                    // Add hover and click sounds to the download links
+                    listItem.addEventListener('mouseover', () => {
+                        hoverSound.volume = 0.5; // Set hover sound volume to 50%
+                        hoverSound.currentTime = 0;
+                        hoverSound.play();
+                    });
+
+                    anchor.addEventListener('click', () => {
+                        selectSound.currentTime = 0;
+                        selectSound.play();
+                    });
+
                     listItem.appendChild(anchor);
                     linksList.appendChild(listItem);
                 }
             });
         }
+
+        // Play click sound for Itch.io and Gumroad buttons
+        const bannerLinks = document.querySelectorAll('.bottom-banner a');
+        bannerLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                clickSound.currentTime = 0;
+                clickSound.play();
+            });
+        });
     </script>
 </body>
 </html>
